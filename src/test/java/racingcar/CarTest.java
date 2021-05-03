@@ -47,5 +47,6 @@ public class CarTest {
 		assertThat(car.getDriveDistance()).isEqualTo(1);
 		car.tryDrive(9);
 		assertThat(car.getDriveDistance()).isEqualTo(2);
+		assertThat(car.getDisplayDistance()).isEqualTo("--");
 	}
 }

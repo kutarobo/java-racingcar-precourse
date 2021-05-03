@@ -26,6 +26,7 @@ public class RacingCarGame {
 		}
 		inputTryCount();
 		race();
+		endGame();
 	}
 
 	private void race() {
@@ -47,5 +48,10 @@ public class RacingCarGame {
 			return;
 		}
 		this.tryCount = Integer.parseInt(tryCount);
+	}
+
+	private void endGame() {
+		participantCars.setWinners();
+		System.out.println(participantCars.getWinnerCarNames() + "가 최종 우승 했습니다.");
 	}
 }
