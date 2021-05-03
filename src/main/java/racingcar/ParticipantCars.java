@@ -38,4 +38,10 @@ public class ParticipantCars {
 	public void setParticipantCars(List<Car> participantCars) {
 		this.participantCars = participantCars;
 	}
+
+	public void race() {
+		for (Car car : participantCars) {
+			car.tryDrive((int)(Math.random() * 10));
+		}
+	}
 }

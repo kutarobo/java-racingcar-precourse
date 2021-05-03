@@ -32,4 +32,20 @@ public class CarTest {
 			.isLessThanOrEqualTo(CarName.MAX_LENGTH)
 			.isEqualTo(3);
 	}
+
+	@Test
+	@DisplayName("전진 시도시 나온 숫자가 4이상일 경우에만 전진하는지 검증")
+	void tryDriveTest() {
+		Car car = new Car("아반떼");
+
+		assertThat(car.getDriveDistance()).isEqualTo(0);
+		car.tryDrive(0);
+		assertThat(car.getDriveDistance()).isEqualTo(0);
+		car.tryDrive(3);
+		assertThat(car.getDriveDistance()).isEqualTo(0);
+		car.tryDrive(4);
+		assertThat(car.getDriveDistance()).isEqualTo(1);
+		car.tryDrive(9);
+		assertThat(car.getDriveDistance()).isEqualTo(2);
+	}
 }
