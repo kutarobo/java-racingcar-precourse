@@ -2,6 +2,7 @@ package racingcar;
 
 public class Car {
 	private static final int DEFAULT_DRIVE_DISTANCE = 0;
+	private static final int MINIMUM_ADVANCE_NUMBER = 4;
 
 	private CarName name;
 	private int driveDistance = DEFAULT_DRIVE_DISTANCE;
@@ -10,19 +11,19 @@ public class Car {
 		this.name = new CarName(name);
 	}
 
-	public void increaseDriveDistance() {
-		this.driveDistance++;
-	}
-
-	public void tryDrive() {
-		if ((int)(Math.random() * 10) < 4) {
+	public void tryDrive(int tryNumber) {
+		if (tryNumber < MINIMUM_ADVANCE_NUMBER) {
 			return;
 		}
 		increaseDriveDistance();
 	}
 
-	public CarName getName() {
-		return name;
+	private void increaseDriveDistance() {
+		this.driveDistance++;
+	}
+
+	public String getName() {
+		return name.getName();
 	}
 
 	public void setName(CarName name) {
