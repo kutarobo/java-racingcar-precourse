@@ -28,16 +28,8 @@ public class Car {
 		return name.getName();
 	}
 
-	public void setName(CarName name) {
-		this.name = name;
-	}
-
 	public int getDriveDistance() {
 		return driveDistance;
-	}
-
-	public void setDriveDistance(int driveDistance) {
-		this.driveDistance = driveDistance;
 	}
 
 	public String getDisplayDistance() {

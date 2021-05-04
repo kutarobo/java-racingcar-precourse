@@ -51,7 +51,6 @@ public class RacingCarGame {
 	}
 
 	private void endGame() {
-		participantCars.setWinners();
 		System.out.println(participantCars.getWinnerCarNames() + "가 최종 우승 했습니다.");
 	}
 }
