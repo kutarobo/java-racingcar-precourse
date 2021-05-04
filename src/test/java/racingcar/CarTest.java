@@ -9,16 +9,16 @@ import org.junit.jupiter.api.Test;
 public class CarTest {
 
 	@Test
-	@DisplayName("입력받은 차량이름이 5글자를 넘을경우 exception 호출")
-	void createCarFailCaseTest() {
+	@DisplayName("입력받은_차량이름이_다섯글자를_초과할경우_예외호출")
+	void 입력받은_차량이름이_다섯글자를_초과할경우_예외호출() {
 		String carName = "메르세데스벤츠";
 		IllegalArgumentException iae1 = assertThrows(IllegalArgumentException.class, () -> new Car(carName));
 		assertThat(iae1.getMessage()).isEqualTo(CarName.GREATER_THEN_MAX_LENGTH_TEXT);
 	}
 
 	@Test
-	@DisplayName("입력 받은 차량이름이 5글자 이내일경우 차량 객체 생성")
-	void createCarSuccessCaseTest() {
+	@DisplayName("입력받은_차량이름이_다섯글자_이내일경우_차량객체_생성")
+	void 입력받은_차량이름이_다섯글자_이내일경우_차량객체_생성() {
 		Car car1 = new Car("기아자동차");
 		Car car2 = new Car("테슬라");
 
@@ -34,8 +34,8 @@ public class CarTest {
 	}
 
 	@Test
-	@DisplayName("전진 시도시 나온 숫자가 4이상일 경우에만 전진하는지 검증")
-	void tryDriveTest() {
+	@DisplayName("전진시도시_넘겨받은_숫자기준으로_전진하는지_검증")
+	void 전진시도시_넘겨받은_숫자기준으로_전진하는지_검증() {
 		Car car = new Car("아반떼");
 
 		assertThat(car.getDriveDistance()).isEqualTo(0);

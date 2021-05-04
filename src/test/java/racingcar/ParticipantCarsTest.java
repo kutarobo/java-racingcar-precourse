@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class ParticipantCarsTest {
 
 	@Test
-	@DisplayName("입력받은 문자를 컴마 기준으로 스플릿해서 참가차량 목록으로 만들기 성공케이스")
-	void getParticipantCarsSuccessCaseTest() throws Exception {
+	@DisplayName("입력받은_문자를_기준으로_참여차량_목록을_생성")
+	void 입력받은_문자를_기준으로_참여차량_목록을_생성() {
 		ParticipantCars cars = new ParticipantCars("기아차,현대차,테슬라차");
 
 		List<Car> participantCars = cars.getParticipantCars();
@@ -23,8 +23,8 @@ class ParticipantCarsTest {
 	}
 
 	@Test
-	@DisplayName("입력받은 문자를 컴마 기준으로 스플릿해서 참가차량 목록으로 만들기 실패케이스")
-	void getParticipantCarsFailCaseTest() {
+	@DisplayName("참여차량_생성시_이름이_다섯글자초과_할_경우_예외처리")
+	void 참여차량_생성시_이름이_다섯글자초과_할_경우_예외처리() {
 		IllegalArgumentException iae = assertThrows(IllegalArgumentException.class,
 			() -> new ParticipantCars("이름이 긴자동차, 기아차, 현대차"));
 
@@ -32,7 +32,7 @@ class ParticipantCarsTest {
 	}
 
 	@Test
-	@DisplayName("우승자 이름이 정상적으로 출력되는지 확인")
+	@DisplayName("우승자이름_출력")
 	void 우승자이름_출력() {
 		ParticipantCars cars = new ParticipantCars("기아차,현대차,테슬라차");
 		List<Car> participantCars = cars.getParticipantCars();
