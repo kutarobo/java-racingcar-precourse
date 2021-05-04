@@ -50,11 +50,6 @@ public class ParticipantCars {
 		System.out.println();
 	}
 
-	private int getMaxDistance() {
-		Collections.sort(this.participantCars, new CarComparator().reversed());
-		return participantCars.get(0).getDriveDistance();
-	}
-
 	public String getWinnerCarNames() {
 		int maxDistance = getMaxDistance();
 		List<String> winners = new ArrayList<>();
@@ -62,6 +57,11 @@ public class ParticipantCars {
 			winners = extractWinner(winners, car, maxDistance);
 		}
 		return String.join(", ", winners);
+	}
+
+	private int getMaxDistance() {
+		Collections.sort(this.participantCars, new CarComparator().reversed());
+		return participantCars.get(0).getDriveDistance();
 	}
 
 	private List<String> extractWinner(List<String> winners, Car car, int maxDistance) {
