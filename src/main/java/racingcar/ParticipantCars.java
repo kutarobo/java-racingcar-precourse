@@ -3,7 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ParticipantCars {
 	private static final String EMPTY_INPUT_DATA_MESSAGE = "차량이름이 입력되지않았습니다. 차량이름을 입력해주세요";
@@ -62,9 +61,17 @@ public class ParticipantCars {
 
 	public String getWinnerCarNames() {
 		int maxDistance = getMaxDistance();
-		return participantCars.stream()
-			.filter(car -> car.getDriveDistance() == maxDistance)
-			.map(car -> car.getName())
-			.collect(Collectors.joining(", "));
+		List<String> winners = new ArrayList<>();
+		for (Car car : participantCars) {
+			winners = extractWinner(winners, car, maxDistance);
+		}
+		return String.join(", ", winners);
+	}
+
+	private List<String> extractWinner(List<String> winners, Car car, int maxDistance) {
+		if (car.getDriveDistance() == maxDistance) {
+			winners.add(car.getName());
+		}
+		return winners;
 	}
 }
