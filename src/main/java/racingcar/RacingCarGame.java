@@ -44,11 +44,24 @@ public class RacingCarGame {
 
 	private void inputTryCount() {
 		String tryCount = getInputData(INPUT_TRY_COUNT_MESSAGE);
-		if (!tryCount.chars().allMatch(Character::isDigit) && Integer.parseInt(tryCount) > 0) {
+		if (isRetry(tryCount)) {
 			inputTryCount();
 			return;
 		}
 		this.tryCount = Integer.parseInt(tryCount);
+	}
+
+	private boolean isRetry(String tryCount) {
+		if (tryCount.trim().isEmpty() || tryCount == null) {
+			return true;
+		}
+		if (!tryCount.chars().allMatch(Character::isDigit)) {
+			return true;
+		}
+		if (Integer.parseInt(tryCount) < 1) {
+			return true;
+		}
+		return false;
 	}
 
 	private void endGame() {
