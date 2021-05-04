@@ -30,4 +30,17 @@ class ParticipantCarsTest {
 
 		assertThat(iae.getMessage()).isEqualTo(CarName.GREATER_THEN_MAX_LENGTH_TEXT);
 	}
+
+	@Test
+	@DisplayName("우승자 이름이 정상적으로 출력되는지 확인")
+	void 우승자이름_출력() {
+		ParticipantCars cars = new ParticipantCars("기아차,현대차,테슬라차");
+		List<Car> participantCars = cars.getParticipantCars();
+
+		participantCars.get(0).tryDrive(4);
+		assertThat(cars.getWinnerCarNames()).isEqualTo("기아차");
+		participantCars.get(1).tryDrive(4);
+		participantCars.get(1).tryDrive(4);
+		assertThat(cars.getWinnerCarNames()).isEqualTo("현대차");
+	}
 }
